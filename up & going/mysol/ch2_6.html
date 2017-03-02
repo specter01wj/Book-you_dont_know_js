@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var foo = {
+			a: 42
+		};
+		
+		// create `bar` and link it to `foo`
+		var bar = Object.create( foo );
+		bar.b = "hello world";
+		bar.b; // "hello world"
+		bar.a; // 42 <-- delegated to `foo`
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

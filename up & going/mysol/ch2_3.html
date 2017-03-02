@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function makeAdder(x) {
+
+			function add(y) {
+				return y + x;
+			};
+
+			return add;
+		}
+
+		var plusOne = makeAdder(1);
+		var plusTen = makeAdder(10);
+
+		plusOne(3); //4
+		plusOne(66); //67
+
+		plusTen(311); //321
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
