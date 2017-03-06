@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = "foo";
+		var b = ["f","o","o"];
+
+		a.length; // 3
+		b.length; // 3
+
+		a.indexOf( "o" ); // 1
+		b.indexOf( "o" ); // 1
+
+		var c = a.concat( "bar" ); // "foobar"
+		var d = b.concat( ["b","a","r"] ); // ["f","o","o","b","a","r"]
+
+		a === c; // false
+		b === d; // false
+
+		a; // "foo"
+		b; // ["f","o","o"]
+
+		var c = a.split('').reverse().join('')
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
