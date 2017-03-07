@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(x) {
+			x.push( 4 );
+			x; // [1,2,3,4]
+
+			// later
+			x = [4,5,6];
+			x.push( 7 );
+			x; // [4,5,6,7]
+
+			return x;
+		}
+
+		var a3 = [1,2,3];
+		var ab1 = foo( a3 );
+		a3; // [1,2,3,4] not [4,5,6,7]
+
+		function foo(x) {
+			x.push( 4 );
+			x; // [1,2,3,4]
+
+			// later
+			x.length = 0; // empty existing array in-place
+			x.push( 4, 5, 6, 7 );
+			x; // [4,5,6,7]
+
+			return x;
+		}
+
+		var a = [1,2,3];
+		foo( a );
+		a; // [4,5,6,7] not [1,2,3,4]
+
+		function foo1(wrapper) {
+			wrapper.a = 42;
+		}
+
+		var obj = {
+			a: 2
+		};
+		foo1( obj );
+		obj.a; // 42
+
+		function foo2(x) {
+			x = x + 1;
+			x; // 3
+		}
+
+		var a = 2;
+		var b = new Number( a ); // or equivalently `Object(a)`
+		foo2( b );
+		console.log( b ); // 2, not 3
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = 2;
+		var b = a; // `b` is always a copy of the value in `a`
+		b++;
+		a; // 2
+		b; // 3
+
+		var c = [1,2,3];
+		var d = c; // `d` is a reference to the shared `[1,2,3]` value
+		d.push( 4 );
+		c; // [1,2,3,4]
+		d; // [1,2,3,4]
+
+		var a1 = [1,2,3];
+		var b1 = a;
+		a1; // [1,2,3]
+		b1; // [1,2,3]
+
+		// later
+		b1 = [4,5,6];
+		a1; // [1,2,3]
+		b1; // [4,5,6]
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
