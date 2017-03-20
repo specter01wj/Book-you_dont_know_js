@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function isThisCool(vals,fn,rx) {
+			vals = vals || Array.prototype;
+			fn = fn || Function.prototype;
+			rx = rx || RegExp.prototype;
+
+			return rx.test(
+				vals.map( fn ).join( "" )
+			);
+		}
+
+		//isThisCool(); // true
+
+		var f1 = isThisCool(
+			["a","b","c"],
+			function(v){ return v.toUpperCase(); },
+			/D/
+		); // false
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function fakeJoin(arr,connector) {
+			var str = "";
+
+			for (var i = 0; i < arr.length; i++) {
+				if (i > 0) {
+					str += connector;
+				}
+				if (arr[i] !== undefined) {
+					str += arr[i];
+				}
+			}
+			return str;
+		}
+
+		//var a = new Array( 3 );
+		var a = Array.apply( null, { length: 3 } );
+		var rr1 = fakeJoin( a, "-" ); // "--"
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
