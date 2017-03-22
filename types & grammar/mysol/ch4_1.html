@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a1 = JSON.stringify( 42 ); // "42"
+		var a2 = JSON.stringify( "42" ); // ""42"" (a string with a
+		// quoted string value in it)
+		var a3 = JSON.stringify( null ); // "null"
+		var a4 = JSON.stringify( true ); // "true"
+
+		var a5 = JSON.stringify( undefined ); // undefined
+		var a6 = JSON.stringify( function(){} ); // undefined
+		var a7 = JSON.stringify(
+		[1,undefined,function(){},4]
+		); // "[1,null,null,4]"
+		var a8 = JSON.stringify(
+		{ a:2, b:function(){} }
+		); // "{"a":2}"
+
+		var o = { };
+		var a = {
+			b: 42,
+			c: o,
+			d: function(){}
+		};
+		// create a circular reference inside `a`
+		o.e = a;
+		// would throw an error on the circular reference
+		// JSON.stringify( a );
+		// define a custom JSON value serialization
+		a.toJSON = function() {
+		// only include the `b` property for serialization
+		return { b: this.b };
+		};
+		var a9 = JSON.stringify( a ); // "{"b":42}"
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

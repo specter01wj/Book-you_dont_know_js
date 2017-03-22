@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = {
+			b: 42,
+			c: "42",
+			d: [1,2,3]
+		};
+
+		var a1 = JSON.stringify( a, ["b","c"] ); // "{"b":42,"c":"42"}"
+		var a2 = JSON.stringify( a, function(k,v){
+			if (k !== "c") return v;
+		} );
+		// "{"b":42,"d":[1,2,3]}"
+
+		var a1 = {
+			b: 42,
+			c: "42",
+			d: [1,2,3]
+		};
+
+		var a3 = JSON.stringify( a1, null, 3 );
+		// "{
+		// "b": 42,
+		// "c": "42",
+		// "d": [
+		// 1,
+		// 2,
+		// 3
+		// ]
+		// }"
+		var a4= JSON.stringify( a1, null, "-----" );
+		// "{
+		// -----"b": 42,
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
