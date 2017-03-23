@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = new Boolean( false );
+		var b = new Number( 0 );
+		var c = new String( "" );
+
+		var d = Boolean( a && b && c );
+		d; // true
+
+		var a1 = "false";
+		var b1 = "0";
+		var c1 = "''";
+		var d1 = Boolean( a1 && b1 && c1 );
+		d1;
+
+		var a2 = []; // empty array--truthy or falsy?
+		var b2 = {}; // empty object--truthy or falsy?
+		var c2 = function(){}; // empty function--truthy or falsy?
+		var d2 = Boolean( a2 && b2 && c2 );
+		d2;
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
