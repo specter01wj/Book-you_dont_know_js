@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = "42";
+		var b = "42pxd45ds";
+
+		var a1 = Number( a ); // 42
+		var a2 = parseInt( a ); // 42
+		var b1 = Number( b ); // NaN
+		var b2 = parseInt( b ); // 42
+
+		parseInt(1/0, 19); //18
+		parseInt( new String( "42") ); //42
+
+		parseInt( 0.000008 ); // 0 ("0" from "0.000008")
+		parseInt( 0.0000008 ); // 8 ("8" from "8e-7")
+		parseInt( false, 16 ); // 250 ("fa" from "false")
+		parseInt( parseInt, 16 ); // 15 ("f" from "function..")
+		parseInt( "0x10" ); // 16
+		parseInt( "103", 2 ); // 2
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
