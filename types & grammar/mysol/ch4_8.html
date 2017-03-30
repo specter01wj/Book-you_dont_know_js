@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = "0";
+		var b = [];
+		var c = {};
+		var d = "";
+		var e = 0;
+		var f = null;
+		var g;
+
+		Boolean( a ); // true
+		Boolean( b ); // true
+		Boolean( c ); // true
+		Boolean( d ); // false
+		Boolean( e ); // false
+		Boolean( f ); // false
+		Boolean( g ); // false
+
+		!!a; // true
+		!!b; // true
+		!!c; // true
+		!!d; // false
+		!!e; // false
+		!!f; // false
+		!!g; // false
+
+		var a1 = [
+			1,
+			function(){ /*..*/ },
+			2,
+			function(){ /*..*/ }
+		];
+
+		JSON.stringify( a1 ); // "[1,null,2,null]"
+		JSON.stringify( a1, function(key,val){
+			if (typeof val == "function") {
+				// force `ToBoolean` coercion of the function
+				return !!val;
+			}
+			else {
+				return val;
+			}
+		} );
+		// "[1,true,2,true]"
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
