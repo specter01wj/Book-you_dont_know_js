@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = [1,2];
+		var b = [3,4];
+
+		a + b; // "1,23,4"
+
+		var a1 = 42;
+		var b1 = a1 + "";
+
+		b1; // "42"
+
+		var a2 = {
+			valueOf: function() { return 42; },
+			toString: function() { return 4; }
+		};
+		a2 + ""; // "42"
+		String( a2 ); // "4"
+
+		var a3 = "3.14";
+		var b3 = a3 - 0;
+		b3; // 3.14
+
+		var a4 = [3];
+		var b4 = [1];
+		a4 - b4; // 2
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
