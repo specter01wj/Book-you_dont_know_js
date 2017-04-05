@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function onlyOne1(a,b,c) {
+			return !!((a && !b && !c) ||
+				(!a && b && !c) || (!a && !b && c));
+		}
+		var a = true;
+		var b = false;
+		onlyOne1( a, b, b ); // true
+		onlyOne1( b, a, b ); // true
+		onlyOne1( a, b, a ); // false
+
+		function onlyOne() {
+			var sum = 0;
+			for (var i=0; i < arguments.length; i++) {
+				// skip falsy values. same as treating
+				// them as 0's, but avoids NaN's.
+				if (arguments[i]) {
+					sum += arguments[i];
+				}
+			}
+			return sum == 1;
+		}
+
+		function onlyOne2() {
+			var sum = 0;
+			for (var i=0; i < arguments.length; i++) {
+				sum += Number( !!arguments[i] );
+			}
+			return sum === 1;
+		}
+
+		var a = true;
+		var b = false;
+		onlyOne( b, a ); // true
+		onlyOne( b, a, b, b, b ); // true
+		onlyOne( b, b ); // false
+		onlyOne( b, a, b, b, b, a ); // false
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

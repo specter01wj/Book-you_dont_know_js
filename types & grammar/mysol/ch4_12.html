@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(a,b) {
+			a = a || "hello";
+			b = b || "world";
+			console.log( a + " " + b );
+		}
+		foo(); // "hello world"
+		foo( "yeah", "yeah!" ); // "yeah yeah!"
+
+		foo( "That's it!", "" ); // "That's it! world" <-- Oops!
+
+		function foo1() {
+			console.log( a1 );
+		}
+		var a1 = 42;
+		a1 && foo1(); // 42
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
