@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = [ 42 ];
+		var b = [ "43" ];
+		a < b; // true
+		b < a; // false
+
+		var a = [ "42" ];
+		var b = [ "043" ];
+		a < b; // false
+
+		var a = [ 4, 2 ];
+		var b = [ 0, 4, 3 ];
+		a < b; // false
+
+		var a = { b: 42 };
+		var b = { b: 43 };
+		a < b; // false
+
+		var a = { b: 42 };
+		var b = { b: 43 };
+		a < b; // false
+		a == b; // false
+		a > b; // false
+		a <= b; // true
+		a >= b; // true
+
+		var a = [ 42 ];
+		var b = "043";
+		a < b; // false -- string comparison!
+		Number( a ) < Number( b ); // true -- number comparison!
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
