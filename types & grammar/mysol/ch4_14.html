@@ -5,48 +5,30 @@
 		<title>YDKJS up & going</title>
 		<script type=text/javascript charset=utf-8>
 
-		var a = null;
-		var b;
-
-		a == b; // true
-		a == null; // true
-		b == null; // true
-
-		a == false; // false
-		b == false; // false
-		a == ""; // false
-		b == ""; // false
-		a == 0; // false
-		b == 0; // false
-
-		var a1 = "abc";
-		var b1 = Object( a ); // same as `new String( a )`
-		a1 === b1; // false
-		a1 == b1; // true
-
-		var a = null;
-		var b = Object( a ); // same as `Object()`
-		a == b; // false
-		var c = undefined;
-		var d = Object( c ); // same as `Object()`
-		c == d; // false
-		var e = NaN;
-		var f = Object( e ); // same as `new Number( e )`
-		e == f;
-
-		Number.prototype.valueOf = function() {
-			return 3;
-		};
-		new Number( 2 ) == 3; // true
-
-		var i = 2;
-		Number.prototype.valueOf = function() {
-			return i++;
-		};
-		var a = new Number( 42 );
-		if (a == 2 && a == 3) {
-			console.log( "Yep, this happened." );
-		}
+		"0" == null; // false
+		"0" == undefined; // false
+		"0" == false; // true -- UH OH!
+		"0" == NaN; // false
+		"0" == 0; // true
+		"0" == ""; // false
+		false == null; // false
+		false == undefined; // false
+		false == NaN; // false
+		false == 0; // true -- UH OH!
+		false == ""; // true -- UH OH!
+		false == []; // true -- UH OH!
+		false == {}; // false
+		"" == null; // false
+		"" == undefined; // false
+		"" == NaN; // false
+		"" == 0; // true -- UH OH!
+		"" == []; // true -- UH OH!
+		"" == {}; // false
+		0 == null; // false
+		0 == undefined; // false
+		0 == NaN; // false
+		0 == []; // true -- UH OH!
+		0 == {}; // false
 
 		</script>
 	</head>
