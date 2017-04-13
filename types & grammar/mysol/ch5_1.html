@@ -11,6 +11,39 @@
 		++a; // 44
 		a; // 44
 
+		var a = 42, b;
+		b = ( a++, a );
+		a; // 43
+		b; // 43
+
+		var obj = {
+			a: 42
+		};
+		obj.a; // 42
+		delete obj.a; // true
+		obj.a; // undefined
+
+		function vowels(str) {
+			var matches;
+			if (str) {
+			// pull out all the vowels
+				matches = str.match( /[aeiou]/g );
+				if (matches) {
+					return matches;
+				}
+			}
+		}
+		vowels( "Hello World" ); // ["e","o","o"]
+
+		function vowels(str) {
+			var matches;
+			// pull out all the vowels
+			if (str && (matches = str.match( /[aeiou]/g ))) {
+				return matches;
+			}
+		}
+		vowels( "Hello World" ); // ["e","o","o"]
+
 		</script>
 	</head>
 	<body>
