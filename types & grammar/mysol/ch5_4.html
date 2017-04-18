@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		// `bar` labeled-block
+		function foo() {
+			bar: {
+				console.log( "Hello" );
+				break bar;
+				console.log( "never runs" );
+			}
+			console.log( "World" );
+		}
+
+		foo();
+		// Hello
+		// World
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

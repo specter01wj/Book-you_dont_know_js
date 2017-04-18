@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function getData() {
+			// ..
+			return {
+				a: 42,
+				b: "foo"
+			};
+		}
+
+		var { a, b } = getData();
+
+		console.log( a, b ); // 42 "foo"
+
+		// var res = getData();
+		// var a = res.a;
+		// var b = res.b;
+
+		function foo({ a, b, c }) {
+			// no need for:
+			// var a = obj.a, b = obj.b, c = obj.c
+			console.log( a, b, c );
+		}
+		foo( {
+			c: [1,2,3],
+			a: 42,
+			b: "foo"
+		} ); // 42 "foo" [1, 2, 3]
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
