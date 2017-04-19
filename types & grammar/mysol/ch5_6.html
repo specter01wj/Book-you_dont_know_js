@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = 42;
+		var b = "foo";
+		var c = [1,2,3];
+
+		a && b || c; // "foo"
+		a || b && c; // 42
+
+		var a = 42;
+		var b = "foo";
+		var c = false;
+		var d = a && b || c ? c || b ? a : c && b : a;
+		d; // 42
+
+		true || false && false; // true
+		(true || false) && false; // false--nope
+		true || (false && false); // true--winner, winner!
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
