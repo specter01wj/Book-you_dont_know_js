@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			try {
+				return 42;
+			}
+			finally {
+				console.log( "Hello" );
+			}
+			console.log( "never runs" );
+		}
+		console.log( foo() );
+		// Hello
+		// 42
+
+		function foo1() {
+			try {
+				throw 42;
+			}
+			finally {
+				console.log( "Hello" );
+			}
+			console.log( "never runs" );
+		}
+		//console.log( foo1() );
+		// Hello
+		// Uncaught Exception: 42
+
+		function foo2() {
+			try {
+				return 42;
+			}
+			finally {
+				throw "Oops!";
+			}
+			console.log( "never runs" );
+		}
+		//console.log( foo2() );
+		// Uncaught Exception: Oops!
+
+		for (var i=0; i<10; i++) {
+			try {
+				continue;
+			}
+			finally {
+				console.log( i );
+			}
+		}
+		// 0 1 2 3 4 5 6 7 8 9
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			try {
+				return 42;
+			}
+			finally {
+			// no `return ..` here, so no override
+			}
+		}
+
+		function bar() {
+			try {
+				return 42;
+			}
+			finally {
+			// override previous `return 42`
+				return;
+			}
+		}
+
+		function baz() {
+			try {
+				return 42;
+			}
+			finally {
+			// override previous `return 42`
+				return "Hello";
+			}
+		}
+
+		foo(); // 42
+		bar(); // undefined
+		baz(); // Hello
+
+		function foo1() {
+			bar: {
+				try {
+					return 42;
+				}
+				finally {
+				// break out of `bar` labeled block
+					break bar;
+				}
+			}
+			console.log( "Crazy" );
+			return "Hello";
+		}
+		
+		console.log( foo1() );
+		// Crazy
+		// Hello
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

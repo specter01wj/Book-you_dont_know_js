@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo( a = 42, b = a + 1 ) {
+			console.log( a, b );
+		}
+
+		foo(); // 42 43
+		foo( undefined ); // 42 43
+		foo( 5 ); // 5 6
+		foo( void 0, 7 ); // 42 7
+		foo( null ); // null 1
+
+		function foo1( a = 42, b = a + 1 ) {
+			console.log(
+				arguments.length, a, b,
+				arguments[0], arguments[1]
+			);
+		}
+
+		foo1(); // 0 42 43 undefined undefined
+		foo1( 10 ); // 1 10 11 10 undefined
+		foo1( 10, undefined ); // 2 10 11 10 undefined
+		foo1( 10, null ); // 2 10 null 10 null
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

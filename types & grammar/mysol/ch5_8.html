@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(a) {
+			a = 42;
+			console.log( arguments[0] );
+		}
+
+		foo( 2 ); // 42 (linked)
+		foo(); // undefined (not linked)
+
+		function foo1(a) {
+			"use strict";
+			a = 42;
+			console.log( arguments[0] );
+		}
+
+		foo1( 2 ); // 2 (not linked)
+		foo1(); // undefined (not linked)
+
+		function foo2(a) {
+			console.log( a + arguments[1] ); // safe!
+		}
+		foo2( 10, 32 ); // 42
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
