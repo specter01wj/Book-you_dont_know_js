@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = "42";
+
+		switch (true) {
+			case a == 10:
+				console.log( "10 or '10'" );
+				break;
+			case a == 42:
+				console.log( "42 or '42'" );
+				break;
+			default:
+			// never gets here
+		}
+		// 42 or '42'
+
+		var a1 = "hello world";
+		var b1 = 10;
+
+		switch (true) {
+			case (a1 || b1 == 10):
+			// never gets here
+				break;
+			default:
+				console.log( "Oops" );
+		}
+		// Oops
+
+		var a2 = 10;
+
+		switch (a2) {
+			case 1:
+			case 2:
+			// never gets here
+			// default:
+			// 	console.log( "default" );
+			case 3:
+				console.log( "3" );
+				break;
+			case 4:
+				console.log( "4" );
+			default:
+				console.log( "end_default" );
+		}
+		// default
+		// 3
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
