@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = 2;
+
+		function foo() { // <-- insert this
+			var a = 3;
+			console.log( a ); // 3
+		} // <-- and this
+
+		foo(); // <-- and this
+		console.log( a ); // 2
+
+		var a = 2;
+
+		(function foo(){ // <-- insert this
+			var a = 3;
+			console.log( a ); // 3
+		})(); // <-- and this
+		console.log( a ); // 2
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
