@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var a = 2;
+		(function IIFE( global ){
+			var a = 3;
+			console.log( a ); // 3
+			console.log( global.a ); // 2
+		})( window );
+		console.log( a ); // 2
+
+		undefined = true; // setting a land-mine for other code! avoid!
+		(function IIFE2( undefined ){
+			var a;
+			if (a === undefined) {
+				console.log( "Undefined is safe here!" );
+			}
+		})();
+
+		var a = 2;
+		(function IIFE( def ){
+			def( window );
+		})(function def( global ){
+			var a = 3;
+			console.log( a ); // 3
+			console.log( global.a ); // 2
+		});
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
