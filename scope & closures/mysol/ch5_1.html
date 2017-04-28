@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			var a = 2;
+			function bar() {
+				console.log( a ); // 2
+			}
+			bar();
+		}
+
+		foo();
+
+		function foo1() {
+			var a1 = 2;
+			function bar1() {
+				console.log( a1 );
+			}
+			return bar1;
+		}
+		var baz = foo1();
+		baz(); // 2 -- Whoa, closure was just observed, man.
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
