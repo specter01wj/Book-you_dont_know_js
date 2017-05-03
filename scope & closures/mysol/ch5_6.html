@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function settimeout_loop() {
+			for (var i=1; i<=5; i++) {
+				(function(){
+					var j = i;
+					setTimeout( function timer(){
+						console.log( j );
+					}, j*1000 );
+				})();
+			}
+		}
+
+		settimeout_loop();
+
+		// function settimeout_loop() {
+		// 	for (var i=1; i<=5; i++) {
+		// 		(function(j){
+		// 			setTimeout( function timer(){
+		// 				console.log( j );
+		// 			}, j*1000 );
+		// 		})( i );
+		// 	}
+		// }
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
