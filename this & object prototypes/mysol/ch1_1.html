@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function identify() {
+			return this.name.toUpperCase();
+		}
+
+		function speak() {
+			var greeting = "Hello, I'm " + identify.call( this );
+			console.log( greeting );
+		}
+
+		var me = {
+			name: "Kyle"
+		};
+
+		var you = {
+			name: "Reader"
+		};
+
+		// identify.call( me ); // KYLE
+		// identify.call( you ); // READER
+		// speak.call( me ); // Hello, I'm KYLE
+		// speak.call( you ); // Hello, I'm READER
+
+		function identify2(context) {
+			return context.name.toUpperCase();
+		}
+
+		function speak2(context) {
+			var greeting = "Hello, I'm " + identify2( context );
+			console.log( greeting );
+		}
+
+		identify2( you ); // READER
+		speak2( me ); // Hello, I'm KYLE
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
