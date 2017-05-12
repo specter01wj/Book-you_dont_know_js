@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(el) {
+			console.log( el, this.id );
+		}
+
+		var obj = {
+			id: "awesome"
+		};
+		
+		// use `obj` as `this` for `foo(..)` calls
+		[1, 2, 3].forEach( foo, obj );
+		// 1 awesome 2 awesome 3 awesome
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

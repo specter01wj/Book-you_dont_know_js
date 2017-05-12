@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			console.log( this.a );
+		}
+
+		var obj = {
+			a: 2,
+			foo: foo
+		};
+
+		var bar = obj.foo; // function reference/alias!
+		var a = "oops, global"; // `a` also property on global object
+		bar(); // "oops, global"
+
+//-------------------------------------------------
+
+		function foo2() {
+			console.log( this.a2 );
+		}
+
+		function doFoo(fn) {
+			// `fn` is just another reference to `foo`
+			fn(); // <-- call-site!
+		}
+
+		var obj2 = {
+			a2: 2,
+			foo2: foo2
+		};
+		var a2 = "oops, global"; // `a` also property on global object
+		doFoo( obj2.foo2 ); // "oops, global"
+
+//-------------------------------------------------
+
+		function foo3() {
+			console.log( this.a3 );
+		}
+
+		var obj3 = {
+			a3: 2,
+			foo3: foo3
+		};
+
+		var a3 = "oops, global"; // `a` also property on global object
+		setTimeout( obj3.foo3, 5000 ); // "oops, global"
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

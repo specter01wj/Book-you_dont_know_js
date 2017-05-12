@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(something) {
+			console.log( this.a, something );
+			return this.a + something;
+		}
+
+		var obj = {
+			a: 2
+		};
+
+		var bar = function() {
+			return foo.apply( obj, arguments );
+		};
+
+		var b = bar( 3 ); // 2 3
+		console.log( b ); // 5
+
+//-------------------------------------------------
+
+		function foo2(something) {
+			console.log( this.a2, something );
+			return this.a2 + something;
+		}
+
+		// simple `bind` helper
+		function bind(fn, obj) {
+			return function() {
+				return fn.apply( obj, arguments );
+			};
+		}
+
+		var obj2 = {
+			a2: 2
+		};
+
+		var bar2 = bind( foo2, obj2 );
+		var b2 = bar2( 3 ); // 2 3
+		console.log( b2 ); // 5
+
+//-------------------------------------------------
+
+		function foo3(something) {
+			console.log( this.a3, something );
+			return this.a3 + something;
+		}
+
+		var obj3 = {
+			a3: 2
+		};
+
+		var bar3 = foo3.bind( obj3 );
+		var b3 = bar3( 3 ); // 2 3
+		console.log( b3 ); // 5
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

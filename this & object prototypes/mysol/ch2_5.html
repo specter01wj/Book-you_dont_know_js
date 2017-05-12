@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			console.log( this.a );
+		}
+
+		var obj = {
+			a: 2
+		};
+
+		foo.call( obj ); // 2
+
+//-------------------------------------------------
+
+		function foo2() {
+			console.log( this.a2 );
+		}
+
+		var obj2 = {
+			a2: 2
+		};
+
+		var bar = function() {
+			foo2.call( obj2 );
+		};
+
+		bar(); // 2
+		setTimeout( bar, 3000 ); // 2
+		// hard-bound `bar` can no longer have its `this` overridden
+		bar.call( window ); // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
