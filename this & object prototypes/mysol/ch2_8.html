@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(a) {
+			this.a = a;
+		}
+
+		var bar = new foo( 2 );
+		console.log( bar.a ); // 2
+
+//-------------------------------------------------
+
+		function foo2() {
+			console.log( this.a2 );
+		}
+
+		var obj1 = {
+			a2: 2,
+			foo2: foo2
+		};
+
+		var obj2 = {
+			a2: 3,
+			foo2: foo2
+		};
+
+		obj1.foo2(); // 2
+		obj2.foo2(); // 3
+		obj1.foo2.call( obj2 ); // 3
+		obj2.foo2.call( obj1 ); // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
