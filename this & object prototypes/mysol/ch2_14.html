@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			// return an arrow function
+			return (a) => {
+				// `this` here is lexically inherited from `foo()`
+				console.log( this.a );
+			};
+		}
+
+		var obj1 = {
+			a: 2
+		};
+
+		var obj2 = {
+			a: 3
+		};
+
+		var bar = foo.call( obj1 );
+		bar.call( obj2 ); // 2, not 3!
+
+//-------------------------------------------------
+
+		function foo2() {
+			setTimeout(() => {
+				// `this` here is lexically inherited from `foo()`
+				console.log( this.a );
+			},3000);
+		}
+
+		var obj3 = {
+			a: 2
+		};
+
+		foo2.call( obj3 ); // 2
+
+//-------------------------------------------------
+
+		function foo3() {
+			var self = this; // lexical capture of `this`
+			setTimeout( function(){
+				console.log( self.a );
+			}, 5000 );
+		}
+
+		var obj4 = {
+			a: 2
+		};
+
+		foo3.call( obj4 ); // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

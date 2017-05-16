@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			console.log( this.a );
+		}
+
+		var a = 2;
+		foo.call( null ); // 2
+
+//-------------------------------------------------
+
+		function foo2(a,b) {
+		    console.log( "a:" + a + ", b:" + b );
+		}
+
+		// spreading out array as parameters
+		foo2.apply( null, [2, 3] ); // a:2, b:3
+		// currying with `bind(..)`
+		var bar = foo2.bind( null, 2 );
+		bar( 3 ); // a:2, b:3
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

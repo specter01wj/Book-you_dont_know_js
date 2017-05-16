@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo(a,b) {
+			console.log( "a:" + a + ", b:" + b );
+		}
+
+		// our DMZ empty object
+		var ø = Object.create( null );
+		// spreading out array as parameters
+		foo.apply( ø, [2, 3] ); // a:2, b:3
+		// currying with `bind(..)`
+		var bar = foo.bind( ø, 2 );
+		bar( 3 ); // a:2, b:3
+
+//-------------------------------------------------
+
+	function foo2() {
+		console.log( this.a );
+	}
+
+	var a = 2;
+	var o = { a: 3, foo2: foo2 };
+	var p = { a: 4 };
+	o.foo2(); // 3
+	(p.foo2 = o.foo2)(); // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
