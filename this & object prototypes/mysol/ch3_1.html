@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		var myObject = { };
+
+		myObject[true] = "foo";
+		myObject[3] = "bar";
+		myObject[myObject] = "baz";
+
+		myObject["true"]; // "foo"
+		myObject["3"]; // "bar"
+		myObject["[object Object]"]; // "baz"
+
+//-------------------------------------------------
+
+		var prefix = "foo";
+
+		var myObject2 = {
+			[prefix + "bar"]: "hello",
+			[prefix + "baz"]: "world"
+		};
+
+		myObject2["foobar"]; // hello
+		myObject2["foobaz"]; // world
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

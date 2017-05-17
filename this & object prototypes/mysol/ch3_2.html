@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function foo() {
+			console.log( "foo" );
+		}
+
+		var someFoo = foo; // variable reference to `foo`
+
+		var myObject = {
+			someFoo: foo
+		};
+
+		foo; // function foo(){..}
+		someFoo; // function foo(){..}
+		myObject.someFoo; // function foo(){..}
+
+//-------------------------------------------------
+
+		var myObject2 = {
+			foo2: function() {
+				console.log( "foo2" );
+			}
+		};
+
+		var someFoo2 = myObject2.foo2;
+		someFoo2; // function foo(){..}
+		myObject2.foo2; // function foo(){..}
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
