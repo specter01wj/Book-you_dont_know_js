@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+		var myObject = {
+			a: 2
+		};
+
+		myObject.a = 3;
+		myObject.a; // 3
+
+		Object.defineProperty( myObject, "a", {
+			value: 4,
+			writable: true,
+			configurable: false, // not configurable!
+			enumerable: true
+		} );
+
+		myObject.a; // 4
+		myObject.a = 5;
+		myObject.a; // 5
+
+		Object.defineProperty( myObject, "a", {
+			value: 6,
+			writable: true,
+			// configurable: true,
+			configurable: false,
+			enumerable: true
+		} ); // TypeError
+
+//-------------------------------------------------
+
+		var myObject2 = {
+			a: 2
+		};
+
+		myObject2.a; // 2
+		delete myObject2.a;
+		myObject2.a; // undefined
+
+		Object.defineProperty( myObject2, "a", {
+			value: 2,
+			writable: true,
+			configurable: false,
+			enumerable: true
+		} );
+
+		myObject2.a; // 2
+		delete myObject2.a;
+		myObject2.a; // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

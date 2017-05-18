@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+
+		function anotherFunction() { /*..*/ }
+
+		var anotherObject = {
+			c: true
+		};
+
+		var anotherArray = [];
+
+		var myObject = {
+			a: 2,
+			b: anotherObject, // reference, not a copy!
+			c: anotherArray, // another reference!
+			d: anotherFunction
+		};
+		
+		anotherArray.push( anotherObject, myObject );
+
+		var newObj = Object.assign( {}, myObject );
+		newObj.a; // 2
+		newObj.b === anotherObject; // true
+		newObj.c === anotherArray; // true
+		newObj.d === anotherFunction; // true
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

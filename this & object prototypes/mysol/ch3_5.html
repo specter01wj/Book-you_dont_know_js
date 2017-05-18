@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+//"use strict";
+		var myObject = {};
+
+		Object.defineProperty( myObject, "a", {
+			value: 2,
+			writable: false, // not writable!
+			configurable: true,
+			enumerable: true
+		} );
+
+		myObject.a = 3;
+		myObject.a; // 2
+
+//-------------------------------------------------
+
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
