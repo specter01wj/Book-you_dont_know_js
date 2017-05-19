@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var myObject = {};
+
+		Object.defineProperty( myObject, "FAVORITE_NUMBER", {
+			value: 42,
+			writable: false,
+			configurable: false
+		} );
+
+//-------------------------------------------------
+
+		var myObject2 = {
+			a: 2
+		};
+
+		Object.preventExtensions( myObject2 );
+		myObject2.b = 3;
+		myObject2.b; // undefined
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

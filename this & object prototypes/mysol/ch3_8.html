@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var myObject = {
+			// define a getter for `a`
+			get a() {
+				return 2;
+			}
+		};
+
+		Object.defineProperty( myObject, "b", { // descriptor
+			// define a getter for `b`
+			get: function(){ return this.a * 2 },
+			// make sure `b` shows up as an object property
+			enumerable: true
+		});
+
+		myObject.a; // 2
+		myObject.b; // 4
+
+//-------------------------------------------------
+
+		var myObject2 = {
+			// define a getter for `a`
+			get a() {
+				return 2;
+			}
+		};
+
+		myObject2.a = 3;
+		myObject2.a; // 2
+
+//-------------------------------------------------
+
+		var myObject3 = {
+			// define a getter for `a`
+			get a() {
+				return this._a_;
+			},
+			// define a setter for `a`
+			set a(val) {
+				this._a_ = val * 2;
+			}
+		};
+
+		myObject3.a = 2;
+		myObject3.a; // 4
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

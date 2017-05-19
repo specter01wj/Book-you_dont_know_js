@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var myObject = { };
+
+		Object.defineProperty( myObject, "a", {
+			enumerable: true, value: 2
+		});
+
+		Object.defineProperty( myObject, "b", {
+			enumerable: false, value: 3
+		});
+
+		myObject.propertyIsEnumerable( "a" ); // true
+		myObject.propertyIsEnumerable( "b" ); // false
+		Object.keys( myObject ); // ["a"]
+		Object.getOwnPropertyNames( myObject ); // ["a", "b"]
+
+//-------------------------------------------------
+
+		var myArray = [ 1, 2, 3 ];
+
+		var it = myArray[Symbol.iterator]();
+		
+		it.next(); // { value:1, done:false }
+		it.next(); // { value:2, done:false }
+		it.next(); // { value:3, done:false }
+		it.next(); // { done:true }
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
