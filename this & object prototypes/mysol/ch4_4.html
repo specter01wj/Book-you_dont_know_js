@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var Something = {
+			cool: function() {
+				this.greeting = "Hello World";
+				this.count = this.count ? this.count + 1 : 1;
+			}
+		};
+
+		Something.cool();
+		Something.greeting; // "Hello World"
+		Something.count; // 1
+
+		var Another = {
+			cool: function() {
+				// implicit mixin of `Something` to `Another`
+				Something.cool.call( this );
+			}
+		};
+		
+		Another.cool();
+		Another.greeting; // "Hello World"
+		Another.count; // 1 (not shared state with `Something`)
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
