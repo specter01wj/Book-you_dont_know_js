@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var anotherObject = {
+			a: 2
+		};
+
+		var myObject = Object.create( anotherObject );
+		
+		anotherObject.a; // 2
+		myObject.a; // 2
+		anotherObject.hasOwnProperty( "a" ); // true
+		myObject.hasOwnProperty( "a" ); // false
+		myObject.a++; // oops, implicit shadowing!
+		anotherObject.a; // 2
+		myObject.a; // 3
+		myObject.hasOwnProperty( "a" ); // true
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

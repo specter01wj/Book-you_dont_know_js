@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var anotherObject = {
+			a: 2
+		};
+
+		// create an object linked to `anotherObject`
+		var myObject = Object.create( anotherObject );
+		myObject.a; // 2
+
+//-------------------------------------------------
+
+		var anotherObject1 = {
+			a: 2
+		};
+
+		// create an object linked to `anotherObject`
+		var myObject1 = Object.create( anotherObject1 );
+
+		for (var k in myObject1) {
+			console.log("found: " + k);
+		}
+		// found: a
+		("a" in myObject1); // true
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
