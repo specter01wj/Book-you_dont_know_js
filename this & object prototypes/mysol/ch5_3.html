@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		function Foo(name) {
+			this.name = name;
+		}
+
+		Foo.prototype.myName = function() {
+			return this.name;
+		};
+
+		var a = new Foo( "a" );
+		var b = new Foo( "b" );
+		a.myName(); // "a"
+		b.myName(); // "b"
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
