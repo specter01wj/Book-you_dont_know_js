@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var anotherObject = {
+			a: 2
+		};
+
+		var myObject = Object.create( anotherObject, {
+			b: {
+				enumerable: false,
+				writable: true,
+				configurable: false,
+				value: 3
+			},
+			c: {
+				enumerable: true,
+				writable: false,
+				configurable: false,
+				value: 4
+			}
+		} );
+
+		myObject.hasOwnProperty( "a" ); // false
+		myObject.hasOwnProperty( "b" ); // true
+		myObject.hasOwnProperty( "c" ); // true
+
+		myObject.a; // 2
+		myObject.b; // 3
+		myObject.c; // 4
+
+//-------------------------------------------------
+
+		function createAndLinkObject(o) {
+			function F(){}
+			F.prototype = o;
+			return new F();
+		}
+
+		var anotherObject = {
+			a: 2
+		};
+
+		var myObject1 = createAndLinkObject( anotherObject );
+		myObject1.a; // 2
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

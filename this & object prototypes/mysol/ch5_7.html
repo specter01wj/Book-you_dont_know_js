@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		var anotherObject = {
+			cool: function() {
+				console.log( "cool!" );
+			}
+		};
+
+		var myObject = Object.create( anotherObject );
+		myObject.cool(); // "cool!"
+
+//-------------------------------------------------
+
+		var anotherObject1 = {
+			cool: function() {
+				console.log( "NOT cool!" );
+			}
+		};
+
+		var myObject1 = Object.create( anotherObject1 );
+
+		myObject1.doCool = function() {
+			this.cool(); // internal delegation!
+		};
+
+		myObject1.doCool(); // "cool!"
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>

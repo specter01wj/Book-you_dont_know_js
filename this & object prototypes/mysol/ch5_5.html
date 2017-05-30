@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		// helper utility to see if `o1` is
+		// related to (delegates to) `o2`
+		function isRelatedTo(o1, o2) {
+			function F(){}
+			F.prototype = o2;
+			return o1 instanceof F;
+		}
+
+		var a = {};
+		var b = Object.create( a );
+
+		isRelatedTo( b, a ); // true
+
+//-------------------------------------------------
+
+		var foo = {
+			something: function() {
+				console.log( "Tell me something good..." );
+			}
+		};
+		
+		var bar = Object.create( foo );
+		bar.something(); // Tell me something good...
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
