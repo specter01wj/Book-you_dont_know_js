@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>YDKJS up & going</title>
+		<script type=text/javascript charset=utf-8>
+		//"use strict";
+
+		function Foo(who) {
+			this.me = who;
+		}
+
+		Foo.prototype.identify = function() {
+			return "I am " + this.me;
+		};
+
+		function Bar(who) {
+			Foo.call( this, who );
+		}
+
+		Bar.prototype = Object.create( Foo.prototype );
+
+		Bar.prototype.speak = function() {
+			console.log( "Hello, " + this.identify() + "." );
+		};
+
+		var b1 = new Bar( "b1" );
+		var b2 = new Bar( "b2" );
+		b1.speak();
+		b2.speak();
+
+//-------------------------------------------------
+
+
+
+		</script>
+	</head>
+	<body>
+		<div>Div here!</div>
+	</body>
+</html>
